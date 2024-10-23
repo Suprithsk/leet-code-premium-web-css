@@ -1,0 +1,41 @@
+.companies_full_div{
+    background-color: #545e68;
+    padding: 20px;
+    border-radius: 10px;
+}
+.company_filter_div{
+    width: 80%;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+.company_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(225, 221, 221);
+    padding: 7px 10px;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.selected{
+    background: #318CE7;
+    color: white;
+}
+.input_filter{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 50%;
+}
+.input_filter input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}

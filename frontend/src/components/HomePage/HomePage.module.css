@@ -1,0 +1,14 @@
+.homepage_div{
+    margin: 3rem auto;
+    width: calc(80% - 2rem);
+}
+.homepage_div h3{
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    color:#1765aa ;
+}
+@media screen and (max-width: 768px){
+    .homepage_div{
+        width: 90%;
+    }  
+}

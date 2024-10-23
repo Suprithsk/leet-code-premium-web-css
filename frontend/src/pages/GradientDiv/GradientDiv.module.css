@@ -1,0 +1,18 @@
+.gradient_div{
+    background: linear-gradient(90deg, #1765aa 0%, #5113c5 100%);
+    padding: 3rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+}
+.gradient_div h2{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.gradient_div p{
+    font-size: 1rem;
+}
