@@ -16,7 +16,16 @@
     border-radius: 5px;
     margin-right: 10px;
 }
-.input_filter button{
+.input_select select{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.input_select select:focus{
+    outline: none;
+}
+.search_btn{
     padding: 10px 20px;
     background: #318CE7;
     color: white;
@@ -26,17 +35,16 @@
     font-weight: 500;
     transition: background 0.3s;
 }
-.input_filter button:hover{
-    background: #1f6fb2;
-}
-.input_select select{
-    padding: 10px;
-    border: 1px solid #ccc;
+.reset_btn{
+    padding: 10px 20px;
+    background: #68696a;
+    color: white;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-.input_select select:focus{
-    outline: none;
+    font-weight: 500;
+    transition: background 0.3s;
+    margin-left: 10px;
 }
  @media screen and (max-width: 768px){
     .filter_div{

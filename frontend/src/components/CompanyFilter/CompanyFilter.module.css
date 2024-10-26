@@ -4,7 +4,7 @@
     border-radius: 10px;
 }
 .company_filter_div{
-    width: 80%;
+    width: 90%;
     margin: 20px 0;
     display: flex;
     flex-wrap: wrap;
@@ -30,7 +30,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    width: 50%;
+    width: 40%;
 }
 .input_filter input{
     width: 100%;
@@ -38,4 +38,30 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-right: 10px;
+}
+.input_filter button{
+    padding: 10px 20px;
+    background: #318CE7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+.input_filter button:hover{
+    background: #1f6fb2;
+}
+@media  screen and (max-width: 768px){
+    .company_filter_div{
+        width: 100%;
+    }
+    .input_filter{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .input_select select{
+        width: 100%;
+    }   
+    
 }

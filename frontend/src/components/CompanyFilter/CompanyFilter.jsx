@@ -1,49 +1,17 @@
+/* eslint-disable react/prop-types */
 import styles from './CompanyFilter.module.css'
-import { useState } from 'react'
 
-function CompanyFilter() {
-    const [companies, setCompanies] = useState([
-        {
-            id: 1,
-            name: 'amazon',
-            isSelected: false
-        },
-        {
-            id: 2,
-            name: 'apple',
-            isSelected: false
-        },
-        {
-            id: 3,
-            name: 'google',
-            isSelected: false
-        },
-        {
-            id: 4,
-            name: 'microsoft',
-            isSelected: false
-        },
-        {
-            id: 5,
-            name: 'facebook',
-            isSelected: false
-        },
-        {
-            id: 6,
-            name: 'netflix',
-            isSelected: false
-        }
-    ])
+function CompanyFilter({companies, propSetCompanies}) {
 
     const handleCompanyClick = (id) => {
         const newCompanies = companies.map(company => company.id === id ? { ...company, isSelected: !company.isSelected } : company)
-        setCompanies(newCompanies)
+        propSetCompanies(newCompanies)    
     }
     return (
         <div className={styles.companies_full_div}>
             <div className={styles.input_filter}>
             {/* <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg> */}
-                <input type="text" placeholder="Search for problems" />
+                <input type="text" placeholder="Search for companies" />
                 <button>Search</button>
             </div>
             <div className={styles.company_filter_div}>

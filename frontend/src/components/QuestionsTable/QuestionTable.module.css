@@ -1,0 +1,13 @@
+.questions_table{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2 ,1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+@media screen and (max-width: 768px){
+    .questions_table{
+        grid-template-columns: 1fr;
+    }
+    
+}

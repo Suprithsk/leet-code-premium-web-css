@@ -1,0 +1,98 @@
+.question_card{
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.upper_div{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.difficulty_div_easy{
+    padding: 5px 10px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+.difficulty_div_medium{
+    padding: 5px 10px;
+    background: #FFC107;
+    color: white;
+    border-radius: 5px;
+}
+.difficulty_div_hard{
+    padding: 5px 10px;
+    background: #f44336;
+    color: white;
+    border-radius: 5px;
+}
+.title_div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+.title_div>svg{
+    color: #318CE7;
+    width: 30px;
+    height: 30px;
+}
+.title_div>h2{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.company_filter_div{
+    width: 90%;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+}
+.company_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(225, 221, 221);
+    padding: 7px 10px;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.input_select{
+    flex-grow: 1;
+}
+.input_select select{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+.input_select select:focus{
+    outline: none;
+}
+.lower_div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.input_btn{
+    padding: 10px 20px;
+    background: #318CE7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+.input_btn:hover{
+    background: #1E75D8;
+}
