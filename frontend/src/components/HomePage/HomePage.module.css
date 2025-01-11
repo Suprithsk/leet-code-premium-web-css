@@ -12,3 +12,13 @@
         width: 90%;
     }  
 }
+.pagination_div{
+    
+    width: 60%;
+    margin-right: 10px;
+}
+@media screen and (max-width: 768px){
+    .pagination_div{
+        width: 100%;
+    }
+}

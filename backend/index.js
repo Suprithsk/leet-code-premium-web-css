@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose= require('mongoose');
+const authMiddleware = require('./middlewares/authMiddleware')
 
 const app = express();
 
@@ -15,7 +16,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // app.use('/api/auth', authRoutes);
-app.use('/api/questions', require('./routes/questionRoutes'));
+app.use('/api/questions', require('./routes/questionRoutes') );
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/solvedQuestions', authMiddleware.isUser ,require('./routes/solvedQuestionRoutes'));
 // app.use('/api/solvedQuestions', require('./routes/solvedQuestions'));
 
 app.listen(PORT, () => {

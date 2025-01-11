@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
   
-
 const signin = async (req, res) => {
     const { username, password } = req.body;
     try {
@@ -15,7 +14,7 @@ const signin = async (req, res) => {
         if (!passwordMatch) {
             return res.status(401).json({ error: 'Invalid username or password' });
         }
-        const token = jwt.sign({ username, role }, "SECRET", { expiresIn: '1h' });
+        const token = jwt.sign({ username }, process.env.JWT_SECRET);
 
         const message = "Signin successfully";
 

@@ -7,9 +7,11 @@ exports.getQuestionsByParams = async (req, res) => {
 
     try {
         const query = {};
+        const companies=req.query.companies?req.query.companies.split(','):null;
+
         if (req.query.difficulty) query.Difficulty = req.query.difficulty;
         if (req.query.searchTerm) query.Title = { $regex: req.query.searchTerm, $options: 'i' };
-        if (req.query.companies) query.asked_by = { $all: req.query.companies };
+        if (req.query.companies) query.asked_by = { $all: companies };
 
         const questions = await Question.find(query).skip(skip).limit(limit);
         const totalQuestions = await Question.countDocuments(query);
@@ -23,6 +25,15 @@ exports.getQuestionsByParams = async (req, res) => {
             questions,
         });
 
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+}
+
+exports.getAllCompanies = async (req, res) => {
+    try {
+        const companies = await Question.distinct('asked_by');
+        return res.json(companies);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

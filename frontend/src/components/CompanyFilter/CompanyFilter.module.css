@@ -26,6 +26,12 @@
     background: #318CE7;
     color: white;
 }
+.selected_companies_div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin: 20px 0;
+}
 .input_filter{
     display: flex;
     justify-content: start;
@@ -51,6 +57,46 @@
 }
 .input_filter button:hover{
     background: #1f6fb2;
+}
+.pageNavigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.pageButtons{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.pageButtons p{
+    margin: 0;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.selected_companies_div p{
+    margin: 0;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.pageButtons button{
+    padding: 10px 20px;
+    background: #318CE7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+.pageButtons button:hover{
+    background: #1765aa;
+}
+.pageButtons button:disabled{
+    background: #ccc;
+    cursor: not-allowed;
 }
 @media  screen and (max-width: 768px){
     .company_filter_div{

@@ -1,0 +1,69 @@
+.login_div{
+    background: url('../../assets/signinImagePremium.jpg');
+    background-size: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg_div{
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login_second_div{
+    background: rgba(255, 255, 255);
+    padding: 20px;
+    border-radius: 5px;
+    width: 500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.login_second_div h2{
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.input_div>input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.login_second_div button{
+    padding: 10px 20px;
+    background: #318CE7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    transition: background 0.3s;
+}
+.login_second_div p{
+    font-size: 1rem;
+    margin-top: 20px;
+    text-align: center;
+}
+.login_form button:hover{
+    background: #1f6fb2;
+}
+.input_div{
+    margin-top: 20px;
+}
+@media screen and (max-width: 768px){
+    .login_second_div{
+        width: 90%;
+    }
+    
+}

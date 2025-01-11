@@ -1,0 +1,97 @@
+.pagination{
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.itemsPerPage{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.pageNavigation{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.goToPage{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.goToPage input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50px;
+}
+.pageButtons{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.btn_apply{
+    padding: 10px 20px;
+    background: #c84322;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+.pageButtons p{
+    margin: 0;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.btn_apply:hover{
+    background: #a81611;
+}
+.pageButtons button{
+    padding: 10px 20px;
+    background: #318CE7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+.pageButtons button:hover{
+    background: #1765aa;
+}
+.pageButtons button:disabled{
+    background: #ccc;
+    cursor: not-allowed;
+}
+.itemsPerPage select{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+@media screen and (max-width: 768px){
+    .pagination{
+        flex-direction: column;
+        align-items: center;
+    }
+    .itemsPerPage{
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .pageNavigation{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .goToPage{
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .pageButtons{
+        justify-content: center;
+        margin-top: 10px;
+    }
+}

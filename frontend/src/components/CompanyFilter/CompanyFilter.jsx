@@ -1,31 +1,146 @@
 /* eslint-disable react/prop-types */
-import styles from './CompanyFilter.module.css'
+import styles from "./CompanyFilter.module.css";
+import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 
-function CompanyFilter({companies, propSetCompanies}) {
+function CompanyFilter({ companies, propSetCompanies, propsSetCurrentPage, unChangedCompanies,propsSetUnchangedCompanies }) {
+    console.log("CompanyFilter");
+    const [currentPage, setCurrentPage] = useState(1);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+    const pageSize = 25;
+    const totalPages = Math.ceil(companies.length / pageSize);
 
-    const handleCompanyClick = (id) => {
-        const newCompanies = companies.map(company => company.id === id ? { ...company, isSelected: !company.isSelected } : company)
-        propSetCompanies(newCompanies)    
-    }
+    useEffect(() => {
+        setCurrentPage(1);
+        propSetCompanies(unChangedCompanies.filter((company) => {
+            return company.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
+        }));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [debouncedSearchTerm]);
+    
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setDebouncedSearchTerm(searchTerm);
+        }, 600);
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [ searchTerm, debouncedSearchTerm]);
+    const paginatedCompanies = companies.slice(
+        (currentPage - 1) * pageSize,
+        currentPage * pageSize
+    );
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+    const handleCompanyClick = (name) => {
+        propsSetCurrentPage(1);
+        const newCompanies = companies.map((company) => {
+            if (company.name === name) {
+                return {
+                    ...company,
+                    isSelected: !company.isSelected,
+                };
+            }
+            return company;
+        });
+        const newUnChangedCompanies = unChangedCompanies.map((company) => {
+            if (company.name === name) {
+                return {
+                    ...company,
+                    isSelected: !company.isSelected,
+                };
+            }
+            return company;
+        });
+        propsSetUnchangedCompanies(newUnChangedCompanies);
+        propSetCompanies(newCompanies);
+
+    };
+    const searchTermHandler = (e) => {
+        setSearchTerm(e.target.value);
+    };
     return (
         <div className={styles.companies_full_div}>
             <div className={styles.input_filter}>
-            {/* <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg> */}
-                <input type="text" placeholder="Search for companies" />
-                <button>Search</button>
+                <input
+                    type="text"
+                    placeholder="Search for companies"
+                    value={searchTerm}
+                    onChange={searchTermHandler}
+                />
             </div>
+
             <div className={styles.company_filter_div}>
-                {companies.map(company => (
-                    <div className={`${styles.company_div} ${company.isSelected ? styles.selected : ''}`} key={company.id} onClick={() => {
-                        handleCompanyClick(company.id)
-                    }}>
+                {paginatedCompanies.map((company) => (
+                    <div
+                        className={`${styles.company_div} ${
+                            company.isSelected ? styles.selected : ""
+                        }`}
+                        key={company.name}
+                        onClick={() => handleCompanyClick(company.name)}
+                    >
                         {company.name}
-                        {company.isSelected && <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x ml-1 h-3 w-3"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>}
+                        {company.isSelected && (
+                            <X size={20} className={styles.selected_icon} />
+                        )}
                     </div>
                 ))}
             </div>
+            <div className={styles.selected_companies_div}>
+                <p>
+                    {companies.filter((company) => company.isSelected).length >
+                        0 && "Selected companies: "}
+                    {companies
+                        .filter((company) => company.isSelected)
+                        .map((company) => company.name)
+                        .join(", ")}
+                </p>
+            </div>
+
+            <div className={styles.pageNavigation}>
+                <div className={styles.pageButtons}>
+                    <button
+                        disabled={currentPage == 1 ? true : false}
+                        onClick={() => handlePageChange(1)}
+                    >
+                        First
+                    </button>
+                    <button
+                        disabled={currentPage == 1 ? true : false}
+                        onClick={() => {
+                            if (currentPage > 1) {
+                                handlePageChange(currentPage - 1);
+                            }
+                        }}
+                    >
+                        Previous
+                    </button>
+                    <p>
+                        {currentPage}/{totalPages}
+                    </p>
+                    <button
+                        disabled={currentPage == totalPages ? true : false}
+                        onClick={() => {
+                            if (currentPage < totalPages) {
+                                handlePageChange(currentPage + 1);
+                            }
+                        }}
+                    >
+                        Next
+                    </button>
+                    <button
+                        disabled={currentPage == totalPages ? true : false}
+                        onClick={() => handlePageChange(totalPages)}
+                    >
+                        Last
+                    </button>
+                </div>
+            </div>
         </div>
-    )
+    );
 }
 
-export default CompanyFilter
+export default CompanyFilter;

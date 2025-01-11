@@ -1,13 +1,38 @@
 import './App.css'
-import Header from './components/Header/Header'
-import HomePage from './components/HomePage/HomePage'
 
+import HomePage from './components/HomePage/HomePage'
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Login from './components/Login/Login'
+import Signup from './components/Signup/Signup';
+// import {
+//   createBrowserRouter,
+//   RouterProvider,
+//   Route,
+//   Link,
+//   Outlet
+// } from "react-router-dom";
+
+// function RootLayout() {
+//   return (
+//     <>
+//       <Header />
+//       <Outlet />
+//     </>
+//   );
+// }
 function App() {
+  
 
   return (
     <>
-      <Header />
-      <HomePage/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Signup />} />
+          {/* <Route path='/profile' element= */}
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

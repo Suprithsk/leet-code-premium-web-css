@@ -8,7 +8,7 @@ function QuestionTable({questionsList}) {
     return (
         <div className={styles.questions_table}>
             {questionsList.map((question) => (
-                <QuestionCard key={question.ID} question={question}/>
+                <QuestionCard key={question._id} question={question}/>
             ))}
         </div>
     )

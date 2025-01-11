@@ -3,3 +3,29 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root{
+  
+}
+.pagination {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+}
+
+
+
+.page-item a.page-link:hover {
+  background-color: #cccccc;
+}
+
+.page-item.active .page-link {
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #007bff;
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: auto;
+}

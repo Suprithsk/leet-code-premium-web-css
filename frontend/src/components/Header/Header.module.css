@@ -10,6 +10,14 @@
     font-size: 1.5rem;
     cursor: pointer;
 }
+.profile_div{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.profile_div p{
+    font-size: 1rem;
+}
 .signin_btn{
     background-color: rgb(236, 232, 226);
     color: #318CE7;

@@ -20,7 +20,7 @@
 }
 .difficulty_div_medium{
     padding: 5px 10px;
-    background: #FFC107;
+    background: #f1b604;
     color: white;
     border-radius: 5px;
 }
@@ -52,6 +52,24 @@
     flex-wrap: wrap;
     justify-content: start;
     align-items: center;
+}
+.company_plus_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(122, 162, 188);
+    padding: 7px 10px;
+    border-radius: 20px;
+    margin-right: 10px;
+    color: white;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.solved{
+    box-shadow: 2px 2px 3px #008000;
+}
+.not_solved{
+    box-shadow: 2px 2px 3px #ff0000;
 }
 .company_div{
     display: flex;
