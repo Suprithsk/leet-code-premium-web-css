@@ -37,7 +37,11 @@ function Login() {
         try{
             const response=await login({username,password});
             localStorage.setItem('token',response.token);
-            navigate('/');
+            navigate('/', {
+                    state:{
+                        user: response.user
+                    }
+            });
         }catch(e){
             console.error('Error logging in:',e);
             throw e;

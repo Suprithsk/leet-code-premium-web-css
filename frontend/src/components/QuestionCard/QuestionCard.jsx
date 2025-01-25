@@ -46,6 +46,8 @@ const QuestionCard = ({ question }) => {
                     await removeSolvedQuestion(question._id);
                     return;
                 }
+                const isSolved = await isSolvedByUser(question._id);
+                if (isSolved.isSolved) return;
                 const res = await addSolvedQuestion(question._id);
                 console.log(res);
             } catch (error) {

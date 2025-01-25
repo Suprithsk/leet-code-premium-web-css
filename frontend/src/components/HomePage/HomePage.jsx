@@ -4,11 +4,13 @@ import Filter from "../Filter/Filter";
 import styles from "./HomePage.module.css";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import QuestionTable from "../QuestionsTable/QuestionTable";
 import Pagination from "../../pages/Pagination/Pagination";
 import Header from "../Header/Header";
 
 function HomePage() {
+    const location = useLocation();
     const [companies, setCompanies] = useState([]);
     const [unChangedCompanies, setUnChangedCompanies] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
@@ -18,6 +20,7 @@ function HomePage() {
     const [totalPages, setTotalPages] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
+    const state = location.state|| null;
     const resetHandler = () => {
         setSearchTerm("");
         setSelectTerm("all");
@@ -85,7 +88,7 @@ function HomePage() {
         <>
         <Header />
         <div className={styles.homepage_div}>
-            <h3>Welcome, Suprith S K</h3>
+        {state && <h3>Welcome, {state.user.username}</h3>}
             <GradientDiv />
             <Filter
                 propsResetHandler={resetHandler}

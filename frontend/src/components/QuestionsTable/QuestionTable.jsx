@@ -1,4 +1,6 @@
+
 import QuestionCard from "../QuestionCard/QuestionCard"
+
 import styles from './QuestionTable.module.css';
 import PropTypes from 'prop-types'
 

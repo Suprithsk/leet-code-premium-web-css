@@ -23,9 +23,8 @@ const checkIfSolved = async (req, res) => {
     try {
         const user=await User.findById(userId);
         // console.log(user);
-        console.log(req.params.questionId);
         const isSolved=user.solved_questions.includes(req.params.questionId);
-        console.log(isSolved);
+
         res.status(200).json({isSolved});
     } catch (error) {
         console.error('Error checking if solved:', error);
