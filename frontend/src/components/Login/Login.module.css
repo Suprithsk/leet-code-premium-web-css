@@ -37,7 +37,7 @@
     border-radius: 5px;
     margin-bottom: 10px;
 }
-.login_second_div button{
+.login_btn{
     padding: 10px 20px;
     background: #318CE7;
     color: white;
@@ -45,10 +45,23 @@
     border-radius: 5px;
     cursor: pointer;
     font-weight: 600;
-    display: block;
-    margin: 10px auto;
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: 10px;
     text-align: center;
     transition: background 0.3s;
+}
+.home_button_1{
+    padding: 10px 20px;
+    background: #68696a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 .login_second_div p{
     font-size: 1rem;

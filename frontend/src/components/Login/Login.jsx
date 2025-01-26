@@ -53,6 +53,10 @@ function Login() {
     const handlePasswordChange=(e)=>{
         setPassword(e.target.value);
     }
+    const onHomeClick=(e)=>{
+        e.preventDefault();
+        navigate('/');
+    }
     return (
         <>
         <Toaster />
@@ -70,6 +74,7 @@ function Login() {
                         <input type="password" id="password" name="password" value={password} onChange={handlePasswordChange}/>
                     </div>
                     <button type="submit" className={styles.login_btn} onClick={loginHandler}>Login</button>
+                    <button className={styles.home_button_1} onClick={onHomeClick}>Home</button>
                     <p className={styles.register_link}>
                         {"Don't have an account?"} <Link to={'/register'}>Register</Link>
                     </p>
